@@ -3,25 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hearts2Hearts Streaming</title>
+  <title>Hearts2Hearts Streaming 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --pink: #ff85b3;
+      --dark-pink: #ff4d94;
+      --light-bg: #fff0f5;
+      --white: #ffffff;
+    }
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #fff0f5;
-      color: #333;
-      text-align: center;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
-      padding: 0;
+      background: linear-gradient(to bottom, #ffe6f0, #fff);
+      color: #333;
+      overflow-x: hidden;
     }
     header {
-      background: #ff99cc;
-      padding: 20px;
-      font-size: 24px;
-      font-weight: bold;
+      background: linear-gradient(to right, #ff66a3, #ff85b3);
       color: white;
+      padding: 20px 16px;
+      font-size: 26px;
+      font-weight: 600;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
     .container {
+      max-width: 700px;
+      margin: auto;
       padding: 20px;
+      text-align: center;
+    }
+    .start-btn {
+      background: var(--pink);
+      color: white;
+      border: none;
+      font-size: 18px;
+      padding: 14px 30px;
+      border-radius: 40px;
+      cursor: pointer;
+      margin: 20px auto;
+      transition: 0.3s ease;
+    }
+    .start-btn:hover {
+      background: var(--dark-pink);
+      box-shadow: 0 4px 14px rgba(255, 105, 180, 0.4);
     }
     .video-container {
       display: none;
@@ -29,55 +58,153 @@
       padding-bottom: 56.25%;
       height: 0;
       margin-top: 20px;
+      border-radius: 16px;
+      overflow: hidden;
     }
     .video-container iframe {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
       border: none;
-      border-radius: 12px;
     }
-    button {
-      background: #ff66b2;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      font-size: 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 30px;
-    }
-    button:hover {
-      background: #ff3399;
-    }
-    .note {
+    .note, .counter {
       font-size: 14px;
       color: #777;
-      margin-top: 20px;
+      margin-top: 10px;
+    }
+    .rules, .trending, .leaderboard, .testimoni, .share {
+      margin-top: 40px;
+      background: rgba(255, 192, 203, 0.15);
+      backdrop-filter: blur(5px);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: left;
+      box-shadow: 0 2px 10px rgba(255, 182, 193, 0.2);
+    }
+    .rules h2, .trending h2, .leaderboard h2, .testimoni h2, .share h2 {
+      font-size: 18px;
+      color: #cc0066;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+    .testimoni blockquote {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 10px;
+      border-left: 4px solid #ff85b3;
+      padding-left: 10px;
+    }
+    .testimoni cite {
+      font-size: 13px;
+      color: #888;
+    }
+    .share button {
+      background: #ff66b2;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .share button:hover {
+      background: #ff3399;
+    }
+    footer {
+      margin-top: 50px;
+      font-size: 13px;
+      color: #aaa;
+      text-align: center;
+      padding-bottom: 20px;
     }
   </style>
 </head>
 <body>
 
-<header>Hearts2Hearts Streaming 💗</header>
+<header>Hearts2Hearts Streaming 💖</header>
 
 <div class="container">
-  <p>Tonton video ini langsung dari YouTube agar view kamu benar-benar dihitung! Klik tombol di bawah 👇</p>
-  <button onclick="startStreaming()">Mulai Streaming</button>
+  <p style="font-size: 16px;">Klik tombol di bawah untuk mulai streaming secara sah! 🎧</p>
+  <button class="start-btn" onclick="startStreaming()">🎬 Mulai Streaming</button>
 
   <div class="video-container" id="videoSection">
     <iframe id="ytplayer" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 
-  <div class="note">✨ View akan dihitung jika kamu menekan tombol & menonton ≥ 30 detik</div>
+  <div class="note">✨ View hanya dihitung jika menonton ≥ 30 detik dan ada interaksi pengguna</div>
+  <div class="counter">🔥 Total streaming hari ini: <span id="counter">0</span> kali</div>
+
+  <div class="rules">
+    <h2>📌 Aturan Streaming Agar View Terhitung</h2>
+    <ul>
+      <li>✅ Klik tombol "Mulai Streaming" secara manual</li>
+      <li>✅ Tonton minimal 30–40 detik</li>
+      <li>✅ Jangan refresh halaman terlalu cepat</li>
+      <li>✅ Gunakan beberapa akun & device berbeda</li>
+      <li>✅ Tonton dalam resolusi normal, jangan mute langsung</li>
+    </ul>
+  </div>
+
+  <div class="trending">
+    <h2>🎵 Lagu Trending Hari Ini</h2>
+    <ul>
+      <li>1. Hearts2Hearts – *Gee (Cover)*</li>
+      <li>2. VEXY – *Can’t Dim My Shine*</li>
+      <li>3. Carmen – *Midnight Bloom*</li>
+    </ul>
+  </div>
+
+  <div class="leaderboard">
+    <h2>🏆 Top Fans Hari Ini</h2>
+    <ul>
+      <li>💖 @blinkfairy - 42x stream</li>
+      <li>💖 @vexystan88 - 37x stream</li>
+      <li>💖 @carmenxidol - 30x stream</li>
+    </ul>
+  </div>
+
+  <div class="testimoni">
+    <h2>💬 Testimoni Fans</h2>
+    <blockquote>"Aku nonton tiap pagi sebelum berangkat sekolah, biar semangat!"</blockquote>
+    <cite>- @heartsbaby</cite>
+    <blockquote>"Desain webnya lucu banget, jadi betah streaming terus!"</blockquote>
+    <cite>- @saranghax3</cite>
+  </div>
+
+  <div class="share">
+    <h2>📲 Ajak Temanmu Streaming Bareng!</h2>
+    <button onclick="shareToWA()">Bagikan ke WhatsApp</button>
+  </div>
+
+  <footer>
+    Hearts2Hearts Fansite &copy; 2025 | Streaming with 💗
+  </footer>
 </div>
 
 <script>
+  let counter = 0;
   function startStreaming() {
     const videoSection = document.getElementById('videoSection');
     const player = document.getElementById('ytplayer');
+    const counterElem = document.getElementById('counter');
     player.src = "https://www.youtube.com/embed/n7kFRxFIPrI?autoplay=1";
     videoSection.style.display = "block";
+    counter++;
+    counterElem.textContent = counter;
+  }
+
+  function shareToWA() {
+    const url = window.location.href;
+    const text = encodeURIComponent("🎶 Ayo streaming Hearts2Hearts bareng aku di sini 💗: " + url);
+    window.open("https://wa.me/?text=" + text, "_blank");
   }
 </script>
 
