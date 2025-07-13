@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #ffe6f0;
+      background: #fff0f5;
       color: #333;
       text-align: center;
       margin: 0;
@@ -16,15 +16,19 @@
     header {
       background: #ff99cc;
       padding: 20px;
-      color: white;
       font-size: 24px;
       font-weight: bold;
+      color: white;
+    }
+    .container {
+      padding: 20px;
     }
     .video-container {
+      display: none;
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
-      margin: 20px;
+      margin-top: 20px;
     }
     .video-container iframe {
       position: absolute;
@@ -33,23 +37,23 @@
       border: none;
       border-radius: 12px;
     }
-    .counter {
+    button {
+      background: #ff66b2;
+      color: white;
+      border: none;
+      padding: 12px 24px;
       font-size: 18px;
-      margin-top: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 30px;
     }
-    .chart {
-      width: 90%;
-      max-width: 600px;
-      margin: 30px auto;
+    button:hover {
+      background: #ff3399;
     }
-    canvas {
-      width: 100% !important;
-      height: auto !important;
-    }
-    footer {
-      margin: 20px;
+    .note {
       font-size: 14px;
       color: #777;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -57,57 +61,24 @@
 
 <header>Hearts2Hearts Streaming 💗</header>
 
-<div class="video-container">
-  <iframe id="ytplayer" src="https://www.youtube.com/embed/n7kFRxFIPrI?autoplay=1&mute=1&loop=1&playlist=n7kFRxFIPrI" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<div class="container">
+  <p>Tonton video ini langsung dari YouTube agar view kamu benar-benar dihitung! Klik tombol di bawah 👇</p>
+  <button onclick="startStreaming()">Mulai Streaming</button>
+
+  <div class="video-container" id="videoSection">
+    <iframe id="ytplayer" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+
+  <div class="note">✨ View akan dihitung jika kamu menekan tombol & menonton ≥ 30 detik</div>
 </div>
 
-<div class="counter">
-  Total stream hari ini: <span id="counter">0</span> 💕
-</div>
-
-<div class="chart">
-  <canvas id="streamChart"></canvas>
-</div>
-
-<footer>
-  Data reset otomatis setiap hari • Fan support only 💖
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-  const counterKey = 'h2h-counter';
-  const dateKey = 'h2h-date';
-  const today = new Date().toDateString();
-
-  if (localStorage.getItem(dateKey) !== today) {
-    localStorage.setItem(dateKey, today);
-    localStorage.setItem(counterKey, 0);
+  function startStreaming() {
+    const videoSection = document.getElementById('videoSection');
+    const player = document.getElementById('ytplayer');
+    player.src = "https://www.youtube.com/embed/n7kFRxFIPrI?autoplay=1";
+    videoSection.style.display = "block";
   }
-
-  let counter = parseInt(localStorage.getItem(counterKey)) || 0;
-  counter++;
-  localStorage.setItem(counterKey, counter);
-  document.getElementById('counter').innerText = counter;
-
-  const chart = new Chart(document.getElementById("streamChart"), {
-    type: "bar",
-    data: {
-      labels: ["Sen", "Sel", "Rab", "Kam", "Jum", "Sab", "Min"],
-      datasets: [{
-        label: "Streaming / hari",
-        data: [8, 6, 9, 4, 12, 7, counter],
-        backgroundColor: "#ff66b2"
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: { stepSize: 2 }
-        }
-      }
-    }
-  });
 </script>
 
 </body>
