@@ -7,14 +7,13 @@ function download() {
     return;
   }
 
-  const encodedURL = encodeURIComponent(url);
   let downloadURL;
 
-  // Gunakan pihak ketiga seperti yt1s, ytmp3.cc, atau API yang tersedia
   if (format === "mp3") {
-    downloadURL = `https://api.vevioz.com/@api/button/mp3/${encodedURL}`;
+    downloadURL = `https://ytmp3.nu/api/widget?url=${encodeURIComponent(url)}`;
   } else {
-    downloadURL = `https://api.vevioz.com/@api/button/mp4/${encodedURL}`;
+    // Bisa juga pakai situs redirect aman (iframe/landing)
+    downloadURL = `https://yt1s.lc/en308`; 
   }
 
   document.getElementById("result").innerHTML = `
