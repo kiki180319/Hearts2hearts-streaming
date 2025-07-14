@@ -7,19 +7,15 @@ function download() {
     return;
   }
 
-  let downloadURL;
-
-  if (format === "mp3") {
-    downloadURL = `https://ytmp3.nu/api/widget?url=${encodeURIComponent(url)}`;
-  } else {
-    // Bisa juga pakai situs redirect aman (iframe/landing)
-    downloadURL = `https://yt1s.lc/en308`; 
-  }
+  // Rekomendasi redirect ke situs manual
+  const redirectURL = (format === "mp3")
+    ? `https://ytmp3.nu/ID/`
+    : `https://ssyoutube.com/en169/`;
 
   document.getElementById("result").innerHTML = `
-    <p>Jika tidak muncul otomatis, klik tombol di bawah ini:</p>
-    <a href="${downloadURL}" target="_blank">
-      <button>Download ${format.toUpperCase()}</button>
+    <p>Buka situs berikut dan tempel URL YouTube kamu:</p>
+    <a href="${redirectURL}" target="_blank">
+      <button>Buka situs download ${format.toUpperCase()}</button>
     </a>
   `;
 }
