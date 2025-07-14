@@ -1,195 +1,116 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hearts2Hearts Streaming</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Dancing+Script&display=swap" rel="stylesheet">
   <style>
-    * {
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fefefe;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-    body {
-      background-color: #f9f9f9;
       color: #333;
-      line-height: 1.6;
     }
     nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.95);
+      background: #fff;
       padding: 15px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      z-index: 100;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     nav .logo {
-      font-size: 24px;
       font-weight: bold;
-      color: #E63946;
+      font-size: 22px;
+      color: #e63946;
     }
-    nav ul {
-      list-style: none;
-      display: flex;
-    }
-    nav ul li {
-      margin-left: 20px;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
-    nav ul li a:hover {
-      color: #E63946;
-    }
-
     .hero {
+      background: url('https://www.allkpop.com/upload/2025/02/content/211624/1740173084-image.png') center/cover no-repeat;
       height: 100vh;
-      background: url('https://www.allkpop.com/upload/2025/02/content/211624/1740173084-image.png') no-repeat center center/cover;
-      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
+      position: relative;
       color: white;
     }
     .hero::before {
       content: '';
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      inset: 0;
       background: rgba(0, 0, 0, 0.5);
-      z-index: 1;
     }
     .hero .content {
       position: relative;
       z-index: 2;
-      padding: 20px;
     }
     .hero h1 {
       font-size: 48px;
       font-family: 'Dancing Script', cursive;
-      margin-bottom: 10px;
     }
     .hero p {
       font-size: 20px;
-      margin-bottom: 20px;
+      margin-top: 10px;
     }
-    .cta {
-      padding: 12px 24px;
-      background-color: #E63946;
-      color: white;
-      text-decoration: none;
-      border-radius: 25px;
-      font-weight: bold;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-    .cta:hover {
-      transform: scale(1.1);
-      background-color: #D32F2F;
-    }
-
-    .about {
-      padding: 60px 20px;
-      text-align: center;
-      background: #fff;
-    }
-    .about h2 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      color: #E63946;
-    }
-    .about p {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 18px;
-    }
-
-    #live-counter {
+    .section {
       padding: 40px 20px;
-      background: #f0f0f0;
       text-align: center;
     }
-    #live-counter h2 {
-      color: #E63946;
-      font-size: 28px;
-      margin-bottom: 20px;
+    .iframe-box {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
     }
-
+    iframe {
+      border-radius: 8px;
+    }
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 36px;
-      }
-      .hero p {
-        font-size: 16px;
-      }
-      nav ul {
-        display: none;
-      }
+      .hero h1 { font-size: 32px; }
+      .hero p { font-size: 16px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
   <nav>
     <div class="logo">Hearts2Hearts</div>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">Tentang</a></li>
-      <li><a href="#live-counter">Live</a></li>
-    </ul>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
+  <section class="hero">
     <div class="content">
       <h1>Hearts2Hearts Streaming</h1>
-      <p>Support Your Idols with Every Stream</p>
-      <a href="#live-counter" class="cta">Lihat Live Counter</a>
+      <p>Official streaming support for Hearts2Hearts music videos</p>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="about" id="about">
-    <h2>Tentang Kami</h2>
-    <p>
-      Kami adalah komunitas yang berfokus mendukung Hearts2Hearts melalui streaming yang konsisten dan positif.
-      Setiap klik berarti dukungan nyata untuk perjalanan mereka di dunia musik.
-    </p>
-  </section>
+  <section class="section" id="livecount">
+    <h2>🔴 Live View Count</h2>
+    <div class="iframe-box">
+      <!-- STYLE MV -->
+      <iframe 
+        height="80px" 
+        width="300px" 
+        frameborder="0" 
+        src="https://livecounts.io/embed/youtube-live-view-counter/n7kFRxFIPrI" 
+        style="border: 0; width:300px; height:80px;">
+      </iframe>
 
-  <!-- Live Counter untuk MV The Chase -->
-  <section id="live-counter">
-    <h2>🎥 Live View Count – The Chase</h2>
-    <iframe 
-      src="https://livecounts.io/embed/youtube-live-view-counter/kxUA2wwYiME" 
-      frameborder="0" 
-      width="100%" 
-      height="250" 
-      style="max-width:600px; margin: 0 auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
-      allowfullscreen>
-    </iframe>
+      <!-- THE CHASE MV -->
+      <iframe 
+        height="80px" 
+        width="300px" 
+        frameborder="0" 
+        src="https://livecounts.io/embed/youtube-live-view-counter/kxUA2wwYiME" 
+        style="border: 0; width:300px; height:80px;">
+      </iframe>
+    </div>
   </section>
-
-  <!-- Smooth scroll script -->
-  <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
 
 </body>
 </html>
