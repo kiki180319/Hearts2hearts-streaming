@@ -7,17 +7,14 @@ function download() {
     return;
   }
 
-  let site;
-  if (format === "mp3") {
-    site = "https://mp3-convert.org/youtube-to-mp3/";
-  } else {
-    site = "https://y2mate.tools/";
-  }
+  // Buat link pencarian Google otomatis
+  const query = encodeURIComponent(`Download YouTube ${format.toUpperCase()} ${url}`);
+  const googleSearch = `https://www.google.com/search?q=${query}`;
 
   document.getElementById("result").innerHTML = `
-    <p>Tempel URL YouTube kamu di situs berikut:</p>
-    <a href="${site}" target="_blank">
-      <button>Buka Situs Download ${format.toUpperCase()}</button>
+    <p>Tidak menemukan converter aktif, coba cari langsung di Google:</p>
+    <a href="${googleSearch}" target="_blank">
+      <button>Cari Download ${format.toUpperCase()}</button>
     </a>
   `;
 }
