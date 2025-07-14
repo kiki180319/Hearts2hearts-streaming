@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background: #fefefe;
+      background: #fff;
       margin: 0;
       padding: 0;
       color: #333;
@@ -70,6 +70,18 @@
     iframe {
       border-radius: 8px;
     }
+    .video-box {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+    }
+    .video-container {
+      width: 90%;
+      max-width: 720px;
+      aspect-ratio: 16/9;
+    }
     @media (max-width: 768px) {
       .hero h1 { font-size: 32px; }
       .hero p { font-size: 16px; }
@@ -85,20 +97,19 @@
   <section class="hero">
     <div class="content">
       <h1>Hearts2Hearts Streaming</h1>
-      <p>Official streaming support for Hearts2Hearts music videos</p>
+      <p>Support our official music videos by watching and streaming</p>
     </div>
   </section>
 
   <section class="section" id="livecount">
-    <h2>🔴 Live View Count</h2>
+    <h2>🔴 Live View Counter</h2>
     <div class="iframe-box">
       <!-- STYLE MV -->
       <iframe 
         height="80px" 
         width="300px" 
         frameborder="0" 
-        src="https://livecounts.io/embed/youtube-live-view-counter/n7kFRxFIPrI" 
-        style="border: 0; width:300px; height:80px;">
+        src="https://livecounts.io/embed/youtube-live-view-counter/n7kFRxFIPrI">
       </iframe>
 
       <!-- THE CHASE MV -->
@@ -106,9 +117,26 @@
         height="80px" 
         width="300px" 
         frameborder="0" 
-        src="https://livecounts.io/embed/youtube-live-view-counter/kxUA2wwYiME" 
-        style="border: 0; width:300px; height:80px;">
+        src="https://livecounts.io/embed/youtube-live-view-counter/kxUA2wwYiME">
       </iframe>
+    </div>
+  </section>
+
+  <section class="section" id="streaming">
+    <h2>🎬 Watch Hearts2Hearts MVs</h2>
+    <div class="video-box">
+      <!-- STYLE MV -->
+      <div class="video-container">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/n7kFRxFIPrI?autoplay=0&rel=0" 
+          title="STYLE - Hearts2Hearts" 
+          frameborder="0" allowfullscreen></iframe>
+      </div>
+      <!-- THE CHASE MV -->
+      <div class="video-container">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/kxUA2wwYiME?autoplay=0&rel=0" 
+          title="THE CHASE - Hearts2Hearts" 
+          frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
   </section>
 
