@@ -2,34 +2,28 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <title>Web Download YouTube Sederhana</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <style>
-    body { font-family: Arial, sans-serif; background: #fce4ec; text-align: center; padding: 40px;}
-    h1 { color: #d81b60; }
-    input, button { padding: 10px; font-size: 1em; margin: 10px;}
-    .box { background: #fff; padding: 30px; border-radius: 12px; display: inline-block;}
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Downloader MP3 & MP4 YouTube</title>
+  <meta name="description" content="Unduh video YouTube jadi MP3 atau MP4 gratis, cepat dan tanpa watermark!" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="box">
-    <h1>Download YouTube Video/Audio</h1>
-    <input type="text" id="yturl" placeholder="Tempel link YouTube di sini" size="35"/>
-    <br>
-    <button onclick="goY2mate()">Download via y2mate</button>
-    <button onclick="goLoader()">Download via loader.to</button>
+  <div class="container">
+    <h1>Downloader MP3 & MP4 YouTube</h1>
+    <p>Tempel URL video YouTube dan pilih format yang diinginkan.</p>
+    
+    <input type="text" id="urlInput" placeholder="https://www.youtube.com/watch?v=xxxx" />
+
+    <div class="format-selector">
+      <label><input type="radio" name="format" value="mp3" checked /> MP3</label>
+      <label><input type="radio" name="format" value="mp4" /> MP4</label>
+    </div>
+
+    <button onclick="download()">Download</button>
+
+    <div id="result"></div>
   </div>
-  <script>
-    function goY2mate() {
-      let url = document.getElementById('yturl').value.trim();
-      if(url) window.open('https://www.y2mate.com/youtube/' + encodeURIComponent(url), '_blank');
-      else alert('Masukkan link YouTube!');
-    }
-    function goLoader() {
-      let url = document.getElementById('yturl').value.trim();
-      if(url) window.open('https://loader.to/en16/?url=' + encodeURIComponent(url), '_blank');
-      else alert('Masukkan link YouTube!');
-    }
-  </script>
+
+  <script src="script.js"></script>
 </body>
 </html>
