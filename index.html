@@ -1,146 +1,147 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hearts2Hearts Streaming</title>
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background: #fff;
       margin: 0;
-      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #fefefe;
       color: #333;
     }
+
     nav {
       background: #fff;
-      padding: 15px 20px;
+      padding: 16px 24px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
       z-index: 10;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    nav .logo {
+
+    .logo {
       font-weight: bold;
       font-size: 22px;
       color: #e63946;
     }
+
     .hero {
       background: url('https://www.allkpop.com/upload/2025/02/content/211624/1740173084-image.png') center/cover no-repeat;
       height: 100vh;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
       position: relative;
-      color: white;
     }
+
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0,0,0,0.5);
     }
+
     .hero .content {
       position: relative;
-      z-index: 2;
+      z-index: 1;
+      color: white;
     }
+
     .hero h1 {
       font-size: 48px;
-      font-family: 'Dancing Script', cursive;
+      margin-bottom: 10px;
     }
+
     .hero p {
       font-size: 20px;
-      margin-top: 10px;
     }
+
     .section {
       padding: 40px 20px;
       text-align: center;
     }
+
+    iframe {
+      border-radius: 8px;
+      border: none;
+    }
+
     .iframe-box {
       display: flex;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
-      margin-top: 30px;
+      margin-top: 20px;
     }
-    iframe {
-      border-radius: 8px;
+
+    .playlist {
+      width: 90vw;
+      max-width: 900px;
+      aspect-ratio: 16 / 9;
+      margin: 30px auto 0;
     }
-    .video-box {
-      margin-top: 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      align-items: center;
-    }
-    .video-container {
-      width: 90%;
-      max-width: 720px;
-      aspect-ratio: 16/9;
-    }
+
     @media (max-width: 768px) {
-      .hero h1 { font-size: 32px; }
-      .hero p { font-size: 16px; }
+      .hero h1 {
+        font-size: 32px;
+      }
+      .hero p {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
-<body>  <nav>
+<body>
+
+  <!-- Navbar -->
+  <nav>
     <div class="logo">Hearts2Hearts</div>
-  </nav>  <section class="hero">
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
     <div class="content">
       <h1>Hearts2Hearts Streaming</h1>
-      <p>Support our official music videos by watching and streaming</p>
+      <p>Dukung kami dengan menonton playlist resmi MV kami!</p>
     </div>
-  </section>  <section class="section" id="livecount">
+  </section>
+
+  <!-- Live Counter -->
+  <section class="section">
     <h2>🔴 Live View Counter</h2>
     <div class="iframe-box">
-      <!-- STYLE MV -->
+      <!-- STYLE -->
       <iframe 
-        height="80px" 
-        width="300px" 
-        frameborder="0" 
-        src="https://livecounts.io/embed/youtube-live-view-counter/n7kFRxFIPrI">
-      </iframe><!-- THE CHASE MV -->
-  <iframe 
-    height="80px" 
-    width="300px" 
-    frameborder="0" 
-    src="https://livecounts.io/embed/youtube-live-view-counter/kxUA2wwYiME">
-  </iframe>
-</div>
+        src="https://livecounts.io/embed/youtube-live-view-counter/n7kFRxFIPrI" 
+        height="80px" width="300px"></iframe>
 
-  </section>  <section class="section" id="streaming">
-    <h2>🎬 Watch Hearts2Hearts Playlist</h2>
-    <iframe id="ytplayer" style="width:90%; max-width:800px; aspect-ratio:16/9; border:none; border-radius:8px;" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    <h3 id="status">Memulai playlist...</h3>
-  </section>  <script>
-    const videos = [
-      "kxUA2wwYiME", // The Chase
-      "n7kFRxFIPrI", // STYLE
-      "g1VID6jRz20",
-      "h2oJ-abcxyz",
-      "j7pC3Z8Q12k"
-    ];
+      <!-- THE CHASE -->
+      <iframe 
+        src="https://livecounts.io/embed/youtube-live-view-counter/kxUA2wwYiME" 
+        height="80px" width="300px"></iframe>
+    </div>
+  </section>
 
-    let current = 0;
-    const player = document.getElementById('ytplayer');
-    const status = document.getElementById('status');
+  <!-- Playlist Streaming -->
+  <section class="section">
+    <h2>📺 Official MV Playlist</h2>
+    <div class="playlist">
+      <iframe 
+        width="100%" 
+        height="100%" 
+        src="https://www.youtube.com/embed/videoseries?list=PL1bay_RYqAaVatQMvB0oRajyRDrKR7BT3" 
+        title="Hearts2Hearts Official Playlist" 
+        allow="autoplay; encrypted-media" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
 
-    function playNextVideo() {
-      if (current >= videos.length) {
-        status.innerText = "Selesai memutar semua video ✅";
-        return;
-      }
-      const videoId = videos[current];
-      player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&enablejsapi=1`;
-      status.innerText = `Memutar video ${current + 1} dari ${videos.length}`;
-      current++;
-      setTimeout(playNextVideo, 185000);
-    }
-
-    playNextVideo();
-  </script></body>
+</body>
 </html>
