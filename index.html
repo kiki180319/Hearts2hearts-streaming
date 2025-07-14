@@ -1,28 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Downloader MP3 & MP4 YouTube</title>
-  <meta name="description" content="Unduh video YouTube jadi MP3 atau MP4 gratis, cepat dan tanpa watermark!" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Downloader MP3 & MP4</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Downloader MP3 & MP4 YouTube</h1>
-    <p>Tempel URL video YouTube dan pilih format yang diinginkan.</p>
-    
-    <input type="text" id="urlInput" placeholder="https://www.youtube.com/watch?v=xxxx" />
-
-    <div class="format-selector">
-      <label><input type="radio" name="format" value="mp3" checked /> MP3</label>
-      <label><input type="radio" name="format" value="mp4" /> MP4</label>
-    </div>
-
-    <button onclick="download()">Download</button>
-
-    <div id="result"></div>
+  <h1>Hearts2Hearts Downloader</h1>
+  <input type="text" id="urlInput" placeholder="Masukkan URL YouTube">
+  
+  <div>
+    <label><input type="radio" name="format" value="mp3" checked> MP3</label>
+    <label><input type="radio" name="format" value="mp4"> MP4</label>
   </div>
+
+  <button onclick="download()">Download</button>
+  <div id="result"></div>
 
   <script src="script.js"></script>
 </body>
