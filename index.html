@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,20 +87,14 @@
     }
   </style>
 </head>
-<body>
-
-  <nav>
+<body>  <nav>
     <div class="logo">Hearts2Hearts</div>
-  </nav>
-
-  <section class="hero">
+  </nav>  <section class="hero">
     <div class="content">
       <h1>Hearts2Hearts Streaming</h1>
       <p>Support our official music videos by watching and streaming</p>
     </div>
-  </section>
-
-  <section class="section" id="livecount">
+  </section>  <section class="section" id="livecount">
     <h2>🔴 Live View Counter</h2>
     <div class="iframe-box">
       <!-- STYLE MV -->
@@ -110,118 +103,26 @@
         width="300px" 
         frameborder="0" 
         src="https://livecounts.io/embed/youtube-live-view-counter/n7kFRxFIPrI">
-      </iframe>
+      </iframe><!-- THE CHASE MV -->
+  <iframe 
+    height="80px" 
+    width="300px" 
+    frameborder="0" 
+    src="https://livecounts.io/embed/youtube-live-view-counter/kxUA2wwYiME">
+  </iframe>
+</div>
 
-      <!-- THE CHASE MV -->
-      <iframe 
-        height="80px" 
-        width="300px" 
-        frameborder="0" 
-        src="https://livecounts.io/embed/youtube-live-view-counter/kxUA2wwYiME">
-      </iframe>
-    </div>
-  </section>
-
-  <section class="section" id="streaming">
-    <h2>🎬 Watch Hearts2Hearts MVs</h2>
-    <div class="video-box">
-      <!-- STYLE MV -->
-      <div class="video-container">
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/n7kFRxFIPrI?autoplay=0&rel=0" 
-          title="STYLE - Hearts2Hearts" 
-          frameborder="0" allowfullscreen></iframe>
-      </div>
-      <!-- THE CHASE MV -->
-      <div class="video-container">
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/kxUA2wwYiME?autoplay=0&rel=0" 
-          title="THE CHASE - Hearts2Hearts" 
-          frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </section>
-
-</body>
-</html>
-    
-  </style>
-</head>
-<body>
-
-  <iframe id="ytplayer" src="https://www.youtube.com/embed/kxUA2wwYiME?autoplay=1&mute=1&enablejsapi=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  <h2 id="status">Pemutaran ke-1 dari 5</h2>
-
-  <script>
-    let tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.body.appendChild(tag);
-
-    let player;
-    let count = 1;
-    const maxPlays = 5;
-
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('ytplayer', {
-        events: {
-          'onStateChange': onPlayerStateChange
-        }
-      });
-    }
-
-    function onPlayerStateChange(event) {
-      if (event.data === YT.PlayerState.ENDED) {
-        count++;
-        if (count <= maxPlays) {
-          document.getElementById('status').innerText = `Pemutaran ke-${count} dari 5`;
-          player.seekTo(0);
-          player.playVideo();
-        } else {
-          document.getElementById('status').innerText = `Pemutaran selesai ✅`;
-        }
-      }
-    }
-  </script>
-
-</body>
-</html>
-
-  <title>Hearts2Hearts Streaming Playlist</title>
-  <style>
-    body {
-      margin: 0;
-      background-color: #111;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      font-family: sans-serif;
-    }
-    iframe {
-      width: 90vw;
-      height: 50vw;
-      max-width: 800px;
-      max-height: 450px;
-      border: none;
-    }
-    h2 {
-      margin-top: 20px;
-    }
-  </style>
-</head>
-<body>
-
-  <iframe id="ytplayer" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  <h2 id="status">Memulai playlist...</h2>
-
-  <script>
-    // Ganti dengan 5 video Hearts2Hearts
+  </section>  <section class="section" id="streaming">
+    <h2>🎬 Watch Hearts2Hearts Playlist</h2>
+    <iframe id="ytplayer" style="width:90%; max-width:800px; aspect-ratio:16/9; border:none; border-radius:8px;" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <h3 id="status">Memulai playlist...</h3>
+  </section>  <script>
     const videos = [
       "kxUA2wwYiME", // The Chase
       "n7kFRxFIPrI", // STYLE
-      "g1VID6jRz20", // contoh tambahan
-      "h2oJ-abcxyz", // contoh tambahan
-      "j7pC3Z8Q12k"  // contoh tambahan
+      "g1VID6jRz20",
+      "h2oJ-abcxyz",
+      "j7pC3Z8Q12k"
     ];
 
     let current = 0;
@@ -233,21 +134,13 @@
         status.innerText = "Selesai memutar semua video ✅";
         return;
       }
-
       const videoId = videos[current];
       player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&enablejsapi=1`;
       status.innerText = `Memutar video ${current + 1} dari ${videos.length}`;
-
       current++;
-
-      // Estimasi durasi video: 3 menit (180 detik)
-      // Ubah jika durasi video lebih pendek
-      setTimeout(playNextVideo, 185000); // 185 detik = 3 menit 5 detik
+      setTimeout(playNextVideo, 185000);
     }
 
-    // Mulai pemutaran
     playNextVideo();
-  </script>
-
-</body>
+  </script></body>
 </html>
