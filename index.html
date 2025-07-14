@@ -142,27 +142,7 @@
 
 </body>
 </html>
-    body {
-      margin: 0;
-      background-color: #000;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
-      font-family: Arial, sans-serif;
-    }
-    iframe {
-      border: none;
-      width: 90vw;
-      height: 50vw;
-      max-width: 800px;
-      max-height: 450px;
-    }
-    h2 {
-      margin-top: 20px;
-    }
+    
   </style>
 </head>
 <body>
@@ -199,6 +179,79 @@
         }
       }
     }
+  </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hearts2Hearts Streaming Playlist</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #111;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: sans-serif;
+    }
+    iframe {
+      width: 90vw;
+      height: 50vw;
+      max-width: 800px;
+      max-height: 450px;
+      border: none;
+    }
+    h2 {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <iframe id="ytplayer" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <h2 id="status">Memulai playlist...</h2>
+
+  <script>
+    // Ganti dengan 5 video Hearts2Hearts
+    const videos = [
+      "kxUA2wwYiME", // The Chase
+      "n7kFRxFIPrI", // STYLE
+      "g1VID6jRz20", // contoh tambahan
+      "h2oJ-abcxyz", // contoh tambahan
+      "j7pC3Z8Q12k"  // contoh tambahan
+    ];
+
+    let current = 0;
+    const player = document.getElementById('ytplayer');
+    const status = document.getElementById('status');
+
+    function playNextVideo() {
+      if (current >= videos.length) {
+        status.innerText = "Selesai memutar semua video ✅";
+        return;
+      }
+
+      const videoId = videos[current];
+      player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&enablejsapi=1`;
+      status.innerText = `Memutar video ${current + 1} dari ${videos.length}`;
+
+      current++;
+
+      // Estimasi durasi video: 3 menit (180 detik)
+      // Ubah jika durasi video lebih pendek
+      setTimeout(playNextVideo, 185000); // 185 detik = 3 menit 5 detik
+    }
+
+    // Mulai pemutaran
+    playNextVideo();
   </script>
 
 </body>
