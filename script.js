@@ -7,15 +7,17 @@ function download() {
     return;
   }
 
-  // Rekomendasi redirect ke situs manual
-  const redirectURL = (format === "mp3")
-    ? `https://ytmp3.nu/ID/`
-    : `https://ssyoutube.com/en169/`;
+  let site;
+  if (format === "mp3") {
+    site = "https://mp3-convert.org/youtube-to-mp3/";
+  } else {
+    site = "https://y2mate.tools/";
+  }
 
   document.getElementById("result").innerHTML = `
-    <p>Buka situs berikut dan tempel URL YouTube kamu:</p>
-    <a href="${redirectURL}" target="_blank">
-      <button>Buka situs download ${format.toUpperCase()}</button>
+    <p>Tempel URL YouTube kamu di situs berikut:</p>
+    <a href="${site}" target="_blank">
+      <button>Buka Situs Download ${format.toUpperCase()}</button>
     </a>
   `;
 }
