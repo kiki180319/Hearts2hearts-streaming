@@ -142,3 +142,64 @@
 
 </body>
 </html>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+    }
+    iframe {
+      border: none;
+      width: 90vw;
+      height: 50vw;
+      max-width: 800px;
+      max-height: 450px;
+    }
+    h2 {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <iframe id="ytplayer" src="https://www.youtube.com/embed/kxUA2wwYiME?autoplay=1&mute=1&enablejsapi=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <h2 id="status">Pemutaran ke-1 dari 5</h2>
+
+  <script>
+    let tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+
+    let player;
+    let count = 1;
+    const maxPlays = 5;
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('ytplayer', {
+        events: {
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    function onPlayerStateChange(event) {
+      if (event.data === YT.PlayerState.ENDED) {
+        count++;
+        if (count <= maxPlays) {
+          document.getElementById('status').innerText = `Pemutaran ke-${count} dari 5`;
+          player.seekTo(0);
+          player.playVideo();
+        } else {
+          document.getElementById('status').innerText = `Pemutaran selesai ✅`;
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
